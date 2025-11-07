@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Expert Touchpoints Demo — Embedded Help • Contextual Help • Search-in-Place • Sign-In</title>
+  <style>
+    :root{--ink:#111;--line:#e6e6e6;--bg:#fff;--muted:#666;--brand:#c62828;--card:#fff}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif}
+    header{border-bottom:1px solid var(--line);padding:16px 20px}
+    h1{margin:0 0 6px;font-size:22px}
+    nav a{margin-right:12px;text-decoration:none;color:var(--brand)}
+    main{max-width:1100px;margin:0 auto;padding:24px 18px;display:grid;gap:24px}
+    .card{border:1px solid var(--line);border-radius:14px;padding:16px;background:var(--card)}
+    .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+    .btn{background:var(--brand);color:#fff;border:none;border-radius:10px;padding:10px 14px;cursor:pointer;text-decoration:none;display:inline-block}
+    .muted{color:var(--muted)}
+    pre{background:#fafafa;border:1px solid var(--line);padding:10px;border-radius:10px;overflow:auto}
+    iframe{width:100%;height:440px;border:1px solid var(--line);border-radius:12px}
+    details{border:1px dashed var(--line);padding:10px;border-radius:10px;background:#fff}
+    summary{cursor:pointer;color:var(--brand)}
+    code{background:#fafafa;border:1px solid var(--line);padding:2px 6px;border-radius:6px}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Expert Touchpoints Demo</h1>
+    <div class="muted">Embedded Contextual Help • Contextual Help • Search-in-Place • Sign-In</div>
+    <nav>
+      <a href="#embedded">Embedded Help</a>
+      <a href="#contextual">Contextual Help</a>
+      <a href="#search">Search-in-Place</a>
+      <a href="#signin">Sign-In</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===================== 1) EMBEDDED CONTEXTUAL HELP (INLINE) ===================== -->
+    <section id="embedded" class="card">
+      <h2>Embedded Contextual Help (Inline Panel)</h2>
+      <p>Paste the <strong>Embedded Contextual Help</strong> Touchpoint snippet below. This renders your Expert article inline, side-by-side with your app UI.</p>
+      <!-- BEGIN: Embedded Contextual Help Touchpoint embed (paste from Admin > Touchpoints) -->
+      <!-- EMBEDDED_CONTEXTUAL_HELP_SNIPPET -->
+      <!-- END: Embedded Contextual Help Touchpoint embed -->
+      <details>
+        <summary>Setup tips</summary>
+        <ul>
+          <li>In Expert: <em>Admin → Touchpoints → Create → Embedded Contextual Help</em>. Configure domain allowlist and theme.</li>
+          <li>Copy the generated HTML/JS snippet and replace <code>EMBEDDED_CONTEXTUAL_HELP_SNIPPET</code> above.</li>
+          <li>Point the default article to a high-value doc (e.g., onboarding, quick start).</li>
+        </ul>
+      </details>
+    </section>
+
+    <!-- ===================== 2) CONTEXTUAL HELP (OVERLAY/LAUNCHER) ===================== -->
+    <section id="contextual" class="card">
+      <h2>Contextual Help (Overlay Launcher)</h2>
+      <p>The button below should have the Touchpoint class that opens an overlay. Paste the <strong>Contextual Help</strong> Touchpoint script once, then decorate links with the configured class (e.g., <code>mt-contextual-help</code>).</p>
+
+      <!-- BEGIN: Contextual Help Touchpoint loader (paste from Admin > Touchpoints) -->
+      <!-- CONTEXTUAL_HELP_SCRIPT_SNIPPET -->
+      <!-- END: Contextual Help Touchpoint loader -->
+
+      <div class="row" style="margin-top:8px">
+        <a class="btn mt-contextual-help" href="https://chris-gallegos-test.cxoneexpert.ai" target="_blank" rel="noopener">Open Help Overlay</a>
+        <span class="muted">Update the href to any Expert article URL you want to launch.</span>
+      </div>
+
+      <details>
+        <summary>Setup tips</summary>
+        <ul>
+          <li>Create Touchpoint: <em>Contextual Help Button</em>. Choose the CSS class (e.g., <code>.mt-contextual-help</code>).</li>
+          <li>Paste the script snippet here; apply the class to any link or button that should open the overlay.</li>
+          <li>Great for tooltips, inline links, or floating help icons.</li>
+        </ul>
+      </details>
+    </section>
+
+    <!-- ===================== 3) SEARCH-IN-PLACE ===================== -->
+    <section id="search" class="card">
+      <h2>Search-in-Place</h2>
+      <p>Paste the <strong>Search-in-Place</strong> Touchpoint embed below. This renders a drop-in search experience on this page.</p>
+      <!-- BEGIN: Search-in-Place Touchpoint embed (paste from Admin > Touchpoints) -->
+      <!-- SEARCH_IN_PLACE_SNIPPET -->
+      <!-- END: Search-in-Place Touchpoint embed -->
+      <details>
+        <summary>Setup tips</summary>
+        <ul>
+          <li>Create Touchpoint: <em>Search-in-Place</em>. Style the launcher and results in Expert’s UI.</li>
+          <li>Paste the generated snippet here. Verify domain allowlist includes this site’s URL.</li>
+          <li>Optional: Track engagement via HelpRequests reporting in Expert.</li>
+        </ul>
+      </details>
+    </section>
+
+    <!-- ===================== 4) SIGN-IN (AUTHENTICATION FLOW) ===================== -->
+    <section id="signin" class="card">
+      <h2>Sign-In (Authentication Flow)</h2>
+      <p>This section demonstrates how users authenticate with Expert before viewing permissioned content.</p>
+      <div class="row">
+        <a class="btn" href="https://Yhttps://chris-gallegos-test.cxoneexpert.ai/Special:Userlogin" target="_blank" rel="noopener">Sign in to Expert</a>
+        <a class="btn" href="https://https://chris-gallegos-test.cxoneexpert.ai" target="_blank" rel="noopener">Open a permissioned article</a>
+      </div>
+      <p class="muted" style="margin-top:8px">After signing in on your Expert domain, opening a restricted article shows the gated experience (or the article if already authorized). Use your sandbox SSO or local auth.</p>
+
+      <details>
+        <summary>Setup tips</summary>
+        <ul>
+          <li>Choose a <em>permissioned article</em> in Expert (visible only to logged-in users or a role).</li>
+          <li>Update the two links above to your sandbox domain and that article path.</li>
+          <li>If you’re using SSO, ensure the test account has the right role to demonstrate access control.</li>
+        </ul>
+      </details>
+    </section>
+
+    <!-- ===================== 5) OPTIONAL: SIMPLE API FETCH (BROWSER TOKEN) ===================== -->
+    <section class="card">
+      <h2>Optional: Simple API Fetch (Browser Token)</h2>
+      <p>For a quick API demo without a backend proxy, you can use a <em>scoped Browser API Token</em> (visible in the browser; rotate after demos). Replace placeholders below only if you understand the exposure risk.</p>
+      <div class="row">
+        <input id="pagePath" type="text" size="40" placeholder="/Path/To/Article" />
+        <button class="btn" id="btnFetch">Fetch Page JSON</button>
+      </div>
+      <pre id="out">{ click “Fetch Page JSON” }</pre>
+      <p class="muted">Prefer a server-side proxy for non-trivial demos. Do <strong>not</strong> commit tokens to Git.</p>
+    </section>
+
+    <!-- ===================== 6) HOW TO USE (CHECKLIST) ===================== -->
+    <section class="card">
+      <h2>How to Use This Demo</h2>
+      <ol>
+        <li>Replace <code>YOUR_EXPERT_SITE</code> with <code>chris-gallegos-test.cxoneexpert.ai</code> (or your site).</li>
+        <li>From Expert: create three Touchpoints and paste <strong>each snippet</strong> into its section above:
+          <ul>
+            <li>Embedded Contextual Help</li>
+            <li>Contextual Help Button</li>
+            <li>Search-in-Place</li>
+          </ul>
+        </li>
+        <li>Update the Sign-In links to your sandbox login and a permissioned article path.</li>
+        <li>(Optional) For API demo, set <code>BROWSER_TOKEN</code> and your site URL in the script below <em>only for local testing</em>.</li>
+      </ol>
+    </section>
+  </main>
+
+  <!-- ===================== OPTIONAL: BROWSER TOKEN DEMO SCRIPT ===================== -->
+  <script>
+    // If you choose to demo a client-side call, fill these with throwaway/scoped values for a short-lived demo only.
+    const SITE = 'https://https://chris-gallegos-test.cxoneexpert.ai'; // e.g., https://chris-gallegos-test.cxoneexpert.ai
+    const BROWSER_TOKEN = 'YOUR_BROWSER_TOKEN'; // DO NOT COMMIT REAL TOKENS
+
+    async function fetchPage(path) {
+      const url = `${SITE}/@api/deki/pages/=${encodeURIComponent(path)}?format=json`;
+      const res = await fetch(url, { headers: { 'X-Deki-Token': BROWSER_TOKEN }});
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return res.json();
+    }
+
+    const btn = document.getElementById('btnFetch');
+    if (btn) {
+      btn.addEventListener('click', async () => {
+        const out = document.getElementById('out');
+        const path = document.getElementById('pagePath').value.trim() || '/';
+        out.textContent = 'Loading...';
+        try {
+          const data = await fetchPage(path);
+          out.textContent = JSON.stringify(data, null, 2);
+        } catch (e) {
+          out.textContent = `Error: ${e.message}`;
+        }
+      });
+    }
+  </script>
+</body>
+</html>
