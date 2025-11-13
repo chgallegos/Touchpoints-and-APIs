@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Contextual Help</title>
+  <link rel="stylesheet" href="assets/style.css"/>
+</head>
+<body>
+  <header class="header">
+    <div class="wrap">
+      <div class="brand"><div class="brand-logo"></div><div class="brand-title">Touchpoints & APIs — Demo</div></div>
+      <nav class="nav" id="topnav">
+        <a href="index.html">Home</a>
+        <a href="embedded.html">Embedded Help</a>
+        <a class="active" href="contextual.html">Contextual Help</a>
+        <a href="search.html">Search‑in‑Place</a>
+        <a href="signin.html">Sign‑In</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="contextual" class="card">
+      <h1>Contextual Help</h1>
+      <p class="muted">Paste the <strong>Contextual Help</strong> Touchpoint <em>loader script</em> below.</p>
+
+      <!-- CONTEXTUAL_HELP_SCRIPT_SNIPPET -->
+
+      <div class="row" style="margin-top:8px">
+        <a class="btn mt-contextual-help" href="https://chris-gallegos-test.cxoneexpert.ai/Path/To/Helpful/Article" target="_blank" rel="noopener">Open Help Overlay</a>
+        <a class="btn ghost" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const path = location.pathname;
+    document.querySelectorAll('#topnav a').forEach(a=>{
+      if(path.endsWith(a.getAttribute('href'))) a.classList.add('active');
+    });
+  </script>
+</body>
+</html>

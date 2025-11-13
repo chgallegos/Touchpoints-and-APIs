@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Sign‑In</title>
+  <link rel="stylesheet" href="assets/style.css"/>
+</head>
+<body>
+  <header class="header">
+    <div class="wrap">
+      <div class="brand"><div class="brand-logo"></div><div class="brand-title">Touchpoints & APIs — Demo</div></div>
+      <nav class="nav" id="topnav">
+        <a href="index.html">Home</a>
+        <a href="embedded.html">Embedded Help</a>
+        <a href="contextual.html">Contextual Help</a>
+        <a href="search.html">Search‑in‑Place</a>
+        <a class="active" href="signin.html">Sign‑In</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="signin" class="card">
+      <h1>Sign‑In</h1>
+      <p class="muted">Demo how users authenticate with Expert before viewing permissioned content.</p>
+      <div class="row">
+        <a class="btn red" href="https://chris-gallegos-test.cxoneexpert.ai/Special:Userlogin" target="_blank" rel="noopener">Sign in to Expert</a>
+        <a class="btn" href="https://chris-gallegos-test.cxoneexpert.ai/Path/To/Permissioned/Article" target="_blank" rel="noopener">Open a permissioned article</a>
+      </div>
+      <p class="muted" style="margin-top:8px">After login, the permissioned article loads if your role allows it.</p>
+    </section>
+  </main>
+
+  <script>
+    const path = location.pathname;
+    document.querySelectorAll('#topnav a').forEach(a=>{
+      if(path.endsWith(a.getAttribute('href'))) a.classList.add('active');
+    });
+  </script>
+</body>
+</html>

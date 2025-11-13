@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Embedded Contextual Help</title>
+  <link rel="stylesheet" href="assets/style.css"/>
+</head>
+<body>
+  <header class="header">
+    <div class="wrap">
+      <div class="brand"><div class="brand-logo"></div><div class="brand-title">Touchpoints & APIs — Demo</div></div>
+      <nav class="nav" id="topnav">
+        <a href="index.html">Home</a>
+        <a class="active" href="embedded.html">Embedded Help</a>
+        <a href="contextual.html">Contextual Help</a>
+        <a href="search.html">Search‑in‑Place</a>
+        <a href="signin.html">Sign‑In</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="embedded" class="card">
+      <h1>Embedded Contextual Help</h1>
+      <p class="muted">Paste your <strong>Embedded Contextual Help</strong> Touchpoint snippet below.</p>
+
+      <!-- EMBEDDED_CONTEXTUAL_HELP_SNIPPET -->
+
+      <p class="muted">Allowlist host: <code>touchpoints-and-apis.onrender.com</code>.</p>
+    </section>
+  </main>
+
+  <script>
+    const path = location.pathname;
+    document.querySelectorAll('#topnav a').forEach(a=>{
+      if(path.endsWith(a.getAttribute('href'))) a.classList.add('active');
+    });
+  </script>
+</body>
+</html>
