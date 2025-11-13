@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="assets/style.css"/>
 </head>
 <body>
+  <!-- Header / Nav -->
   <header class="header">
     <div class="wrap">
       <div class="brand">
@@ -17,34 +18,111 @@
         <a class="active" href="index.html">Home</a>
         <a href="embedded.html">Embedded Help</a>
         <a href="contextual.html">Contextual Help</a>
-        <a href="search.html">Search‑in‑Place</a>
-        <a href="signin.html">Sign‑In</a>
+        <a href="search.html">Search-in-Place</a>
+        <a href="signin.html">Sign-In</a>
       </nav>
     </div>
   </header>
 
   <main>
+    <!-- HERO / INTRO -->
     <section class="card">
-      <h1>Welcome</h1>
-      <p class="muted">This site demonstrates Expert Touchpoints using a Kutral‑inspired dark theme with copper accents. Use the menu above to see each touchpoint on its own page.</p>
-      <div class="row">
-        <a class="btn" href="search.html">Try Search‑in‑Place</a>
-        <a class="btn ghost" href="embedded.html">Open Embedded Help</a>
+      <div class="row" style="align-items:flex-start; gap:18px;">
+        <div style="flex:1 1 260px; min-width:0;">
+          <h1>Expert Touchpoints & API Demo</h1>
+          <p class="muted">
+            This site showcases how Expert Touchpoints and authentication flows behave when integrated
+            into a real web experience. Each touchpoint has its own dedicated page so you can explore
+            the functionality in isolation and see how it would operate inside your product, portal, or app.
+          </p>
+          <div class="row" style="margin-top:14px;">
+            <a class="btn" href="search.html">Try Search-in-Place</a>
+            <a class="btn ghost" href="embedded.html">Explore Embedded Help</a>
+          </div>
+        </div>
+        <div style="flex:0 0 320px; max-width:100%;">
+          <!-- Hero image placeholder – replace src with a real image if you have one -->
+          <img
+            src="assets/touchpoints-hero.jpg"
+            alt="Illustration of touchpoints embedded into a web app"
+            style="border-radius:16px; border:1px solid var(--line);"
+            onerror="this.style.display='none';"
+          />
+        </div>
       </div>
     </section>
 
+    <!-- WHAT THIS SITE INCLUDES -->
     <section class="card">
-      <h2>What’s included</h2>
-      <ul>
-        <li>Dedicated pages for <strong>Embedded Help</strong>, <strong>Contextual Help</strong>, <strong>Search‑in‑Place</strong>, and <strong>Sign‑In</strong>.</li>
-        <li>High z‑index and non‑clipping containers so overlays/dropdowns never hide behind cards.</li>
-        <li>Kutral-inspired design: warm copper tones, dark charcoal backgrounds, soft rounded UI.</li>
-      </ul>
+      <h2>What This Site Includes</h2>
+      <div class="row" style="align-items:flex-start; gap:18px;">
+        <div style="flex:1 1 260px; min-width:0;">
+          <ul>
+            <li><strong>Embedded Contextual Help</strong> — View Expert articles inline without leaving the page.</li>
+            <li><strong>Contextual Help</strong> — Open contextual overlays triggered by UI interactions.</li>
+            <li><strong>Search-in-Place</strong> — A drop-in search widget powered by Expert content.</li>
+            <li><strong>Sign-In Flow</strong> — Demonstrates how authenticated vs. anonymous users see content.</li>
+          </ul>
+        </div>
+        <div style="flex:0 0 260px; max-width:100%;">
+          <!-- Secondary image placeholder – optional -->
+          <img
+            src="assets/touchpoints-grid.jpg"
+            alt="Grid of different touchpoint examples"
+            style="border-radius:16px; border:1px solid var(--line);"
+            onerror="this.style.display='none';"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW TO USE THIS DEMO -->
+    <section class="card">
+      <h2>How to Use This Demo</h2>
+      <ol>
+        <li>
+          <strong>Sign in to Expert (if needed)</strong>  
+          For permissioned content or non-public sites, sign in first from the <a href="signin.html">Sign-In</a> page.
+        </li>
+        <li>
+          <strong>Open a touchpoint page</strong>  
+          Use the navigation at the top to switch between Embedded Help, Contextual Help, Search-in-Place, and Sign-In.
+        </li>
+        <li>
+          <strong>Interact like an end user</strong>  
+          Run searches, open overlays, and click into help content to see how Expert behaves inside a real UI.
+        </li>
+        <li>
+          <strong>Use this in enablement or demos</strong>  
+          Walk CSMs, admins, and stakeholders through each page to explain what the touchpoint does and how it’s configured.
+        </li>
+      </ol>
+      <p class="muted">
+        Behind the scenes, each page is just a simple HTML shell with a Touchpoint snippet pasted into it, plus a small amount of CSS to keep
+        things clean and consistent. You can reuse this structure for your own internal demos or proof-of-concepts.
+      </p>
     </section>
   </main>
 
+  <!-- FOOTER -->
+  <footer style="
+      border-top:1px solid var(--line);
+      margin-top:24px;
+      padding:16px 18px;
+      max-width:1100px;
+      margin-left:auto;
+      margin-right:auto;
+      font-size:13px;
+      color:var(--muted);
+    ">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+      <span>Expert Touchpoints & API Demo — Internal Enablement</span>
+      <span>Powered by NICE CXone Expert</span>
+    </div>
+  </footer>
+
   <script>
-    const path = location.pathname.replace(/\/$/,'/index.html');
+    const path = location.pathname.replace(/\\/$/,'/index.html');
     document.querySelectorAll('#topnav a').forEach(a=>{
       if(path.endsWith(a.getAttribute('href'))) a.classList.add('active');
     });
