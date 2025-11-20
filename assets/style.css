@@ -2,14 +2,14 @@
 
 /* Core palette */
 :root{
-  --bg:#ffffff;              /* page background */
-  --surface:#f7f8fa;         /* card/nav background */
-  --ink:#111111;             /* primary text */
-  --muted:#555555;           /* secondary text */
-  --line:#dde1e7;            /* borders/dividers */
-  --accent:#009ae9;          /* NICE blue */
-  --accent-dark:#0076ad;     /* hover state */
-  --danger:#b10e1e;          /* error red */
+  --bg:#ffffff;
+  --surface:#f7f8fa;
+  --ink:#111111;
+  --muted:#555555;
+  --line:#dde1e7;
+  --accent:#009ae9;
+  --accent-dark:#0076ad;
+  --danger:#b10e1e;
   --shadow:0 10px 30px rgba(0,0,0,.06);
   --radius:16px;
 }
@@ -53,7 +53,6 @@ img{
 .brand-logo-img{
   height:28px;
   width:auto;
-  display:block;
 }
 
 .brand-title{
@@ -75,7 +74,7 @@ img{
   border:1px solid transparent;
   padding:7px 12px;
   border-radius:999px;
-  transition:.15s background,.15s border-color,.15s color,.15s transform;
+  transition:.15s;
   font-size:14px;
 }
 
@@ -107,7 +106,7 @@ main{
   border-radius:var(--radius);
   box-shadow:var(--shadow);
   padding:18px;
-  overflow:visible;   /* allow widgets to render naturally */
+  overflow:visible;
 }
 
 .card h1,
@@ -115,8 +114,7 @@ main{
   margin:0 0 8px;
 }
 
-.card p.muted,
-.muted{
+.card p.muted{
   color:var(--muted);
 }
 
@@ -130,7 +128,7 @@ main{
   border:1px solid transparent;
   cursor:pointer;
   text-decoration:none;
-  transition:.15s background,.15s border-color,.15s color,.15s transform,.15s box-shadow;
+  transition:.15s;
 }
 
 /* Primary (NICE blue) */
@@ -149,17 +147,11 @@ main{
   transform:translateY(-1px);
 }
 
-/* Ghost / secondary */
+/* Ghost button */
 .btn.ghost{
   background:transparent;
   border-color:var(--line);
   color:var(--ink);
-  box-shadow:none;
-}
-
-.btn.ghost:hover{
-  background:#eef1f6;
-  border-color:#c3cad8;
 }
 
 /* Danger */
@@ -167,12 +159,6 @@ main{
   background:var(--danger);
   border-color:var(--danger);
   color:#ffffff;
-  box-shadow:0 4px 10px rgba(177,14,30,.25);
-}
-
-.btn.danger:hover{
-  filter:brightness(1.05);
-  transform:translateY(-1px);
 }
 
 /* Inputs */
@@ -184,7 +170,7 @@ main{
   padding:10px 12px;
 }
 
-/* Flex helpers */
+/* Flex */
 .row{
   display:flex;
   gap:12px;
@@ -192,17 +178,7 @@ main{
   align-items:center;
 }
 
-pre{
-  background:#ffffff;
-  border:1px solid var(--line);
-  padding:12px;
-  border-radius:12px;
-  overflow:auto;
-  max-height:340px;
-  color:var(--ink);
-}
-
-/* Touchpoint stacking (z-index only) */
+/* Touchpoint stacking */
 #search{
   position:relative;
   z-index:20;
@@ -216,10 +192,23 @@ pre{
 #embedded{
   position:relative;
   z-index:10;
-  overflow:hidden;   /* keep embedded article neatly inside */
+  overflow:hidden;
+  padding:32px 28px !important;  /* NEW – Clean padding for embedded contextual help */
 }
 
-/* SIP bigger card + centered widget */
+/* Give space between heading/text and the actual embed */
+#embedded [id^="mindtouch-embed"]{
+  display:block;
+  margin-top:16px;
+}
+
+/* Optional: make the embedded iframe feel “native” */
+#embedded iframe{
+  border-radius:12px;
+  border:1px solid var(--line);
+}
+
+/* SIP larger card and centered widget */
 .search-card{
   padding:36px 28px;
 }
@@ -229,7 +218,6 @@ pre{
   margin:0 auto;
 }
 
-/* Make the SIP input feel more “hero” */
 #search input,
 #search input[type="search"]{
   height:52px !important;
@@ -237,7 +225,7 @@ pre{
   padding:10px 16px !important;
 }
 
-/* Make sure widgets float above surrounding chrome */
+/* Ensure touchpoint UI floats above page chrome */
 .mt-search-results,
 .mt-search,
 .mt-search-widget,
