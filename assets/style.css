@@ -107,7 +107,7 @@ main{
   border-radius:var(--radius);
   box-shadow:var(--shadow);
   padding:18px;
-  overflow:hidden;   /* default: keep content tidy */
+  overflow:visible;   /* allow widgets to render naturally */
 }
 
 .card h1,
@@ -202,51 +202,24 @@ pre{
   color:var(--ink);
 }
 
-/* --------------------------------------------------------------
-   TOUCHPOINT-SPECIFIC BEHAVIOR
--------------------------------------------------------------- */
-
-/* SEARCH-IN-PLACE FIX:
-   Extend a fake card behind SIP results so it looks contained */
+/* Touchpoint stacking (z-index only) */
 #search{
   position:relative;
   z-index:20;
-  overflow:visible;     /* allow SIP dropdown/results to extend */
-  background:transparent;
-  border:none;
-  box-shadow:none;
 }
 
-/* Extend the visual card */
-#search::after{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  top:0;
-  bottom:-260px;        /* adjust if SIP results ever exceed card */
-  background:var(--surface);
-  border-radius:var(--radius);
-  border:1px solid var(--line);
-  box-shadow:var(--shadow);
-  z-index:-1;
-}
-
-/* CONTEXTUAL HELP */
 #contextual{
   position:relative;
   z-index:15;
-  overflow:visible;     /* allow overlay to escape */
 }
 
-/* EMBEDDED HELP (article stays inside card) */
 #embedded{
   position:relative;
   z-index:10;
-  overflow:hidden;
+  overflow:hidden;   /* keep embedded article neatly inside */
 }
 
-/* Touchpoint widgets always float above page chrome */
+/* Make sure widgets float above surrounding chrome */
 .mt-search-results,
 .mt-search,
 .mt-search-widget,
