@@ -20,7 +20,7 @@
         <a href="embedded.html">Embedded Help</a>
         <a href="contextual.html">Contextual Help</a>
         <a href="search.html">Search-in-Place</a>
-      
+        <button class="theme-toggle" id="themeToggle" type="button"></button>
       </nav>
     </div>
   </header>
@@ -36,12 +36,8 @@
             into a real web experience. Each touchpoint has its own dedicated page so you can explore
             the functionality in isolation and see how it would operate inside your product, portal, or app.
           </p>
-          <div class="row" style="margin-top:14px;">
-            
-          </div>
         </div>
         <div style="flex:0 0 320px; max-width:100%;">
-          <!-- Hero image placeholder -->
           <img
             src="assets/touchpoints-hero.jpg"
             alt="Illustration of touchpoints embedded into a web app"
@@ -103,7 +99,6 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer style="
       border-top:1px solid var(--line);
       margin-top:24px;
@@ -121,10 +116,36 @@
   </footer>
 
   <script>
-    const path = location.pathname.replace(/\\/$/,'/index.html');
-    document.querySelectorAll('#topnav a').forEach(a=>{
-      if(path.endsWith(a.getAttribute('href'))) a.classList.add('active');
-    });
+    (function(){
+      let path = location.pathname;
+      if(path === '/' || path === '') path = '/index.html';
+      document.querySelectorAll('#topnav a').forEach(a=>{
+        if(path.endsWith(a.getAttribute('href'))) a.classList.add('active');
+      });
+
+      const root = document.documentElement;
+      const toggle = document.getElementById('themeToggle');
+      if(!toggle) return;
+
+      function applyTheme(mode){
+        if(mode === 'dark'){
+          root.setAttribute('data-theme','dark');
+          toggle.textContent = '☀ Light mode';
+        }else{
+          root.removeAttribute('data-theme');
+          toggle.textContent = '🌙 Dark mode';
+        }
+      }
+
+      const stored = localStorage.getItem('tpTheme') || 'light';
+      applyTheme(stored);
+
+      toggle.addEventListener('click',()=>{
+        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('tpTheme', next);
+        applyTheme(next);
+      });
+    })();
   </script>
 </body>
 </html>

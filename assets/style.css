@@ -1,6 +1,6 @@
-/* NICE-inspired light theme */
+/* NICE-inspired theme with light/dark toggle */
 
-/* Core palette */
+/* Light theme defaults */
 :root{
   --bg:#ffffff;
   --surface:#f7f8fa;
@@ -12,6 +12,19 @@
   --danger:#b10e1e;
   --shadow:0 10px 30px rgba(0,0,0,.06);
   --radius:16px;
+}
+
+/* Dark theme overrides */
+html[data-theme="dark"]{
+  --bg:#05070a;
+  --surface:#11141b;
+  --ink:#f4f6ff;
+  --muted:#a3aac4;
+  --line:#2c3241;
+  --accent:#27b6ff;
+  --accent-dark:#0f8fd0;
+  --danger:#ff6161;
+  --shadow:0 18px 40px rgba(0,0,0,.75);
 }
 
 *{box-sizing:border-box;}
@@ -37,11 +50,19 @@ img{
   backdrop-filter:saturate(140%) blur(6px);
   border-bottom:1px solid var(--line);
 }
+html[data-theme="dark"] .header{
+  background:rgba(9,11,16,.96);
+}
 
 .wrap{
   max-width:1100px;
   margin:0 auto;
   padding:14px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  flex-wrap:wrap;
+  gap:10px;
 }
 
 .brand{
@@ -65,7 +86,7 @@ img{
   display:flex;
   gap:8px;
   flex-wrap:wrap;
-  margin-top:10px;
+  align-items:center;
 }
 
 .nav a{
@@ -74,7 +95,7 @@ img{
   border:1px solid transparent;
   padding:7px 12px;
   border-radius:999px;
-  transition:.15s;
+  transition:.15s background,.15s border-color,.15s color,.15s transform;
   font-size:14px;
 }
 
@@ -83,12 +104,36 @@ img{
   border-color:#d3e7f7;
   transform:translateY(-1px);
 }
+html[data-theme="dark"] .nav a:hover{
+  background:#151b28;
+  border-color:#2c3446;
+}
 
 .nav a.active{
   background:var(--accent);
   border-color:var(--accent);
   color:#ffffff;
   font-weight:600;
+}
+
+/* Theme toggle button */
+.theme-toggle{
+  border-radius:999px;
+  padding:6px 12px;
+  font-size:12px;
+  border:1px solid var(--line);
+  background:transparent;
+  color:var(--muted);
+  cursor:pointer;
+  margin-left:4px;
+  transition:.15s background,.15s border-color,.15s color,.15s transform;
+}
+.theme-toggle:hover{
+  background:#eef1f6;
+}
+html[data-theme="dark"] .theme-toggle:hover{
+  background:#151b28;
+  border-color:#3a4257;
 }
 
 /* Layout / Cards */
@@ -114,7 +159,8 @@ main{
   margin:0 0 8px;
 }
 
-.card p.muted{
+.card p.muted,
+.muted{
   color:var(--muted);
 }
 
@@ -128,7 +174,7 @@ main{
   border:1px solid transparent;
   cursor:pointer;
   text-decoration:none;
-  transition:.15s;
+  transition:.15s background,.15s border-color,.15s color,.15s transform,.15s box-shadow;
 }
 
 /* Primary (NICE blue) */
@@ -147,11 +193,21 @@ main{
   transform:translateY(-1px);
 }
 
-/* Ghost button */
+/* Ghost / secondary */
 .btn.ghost{
   background:transparent;
   border-color:var(--line);
   color:var(--ink);
+  box-shadow:none;
+}
+
+.btn.ghost:hover{
+  background:#eef1f6;
+  border-color:#c3cad8;
+}
+html[data-theme="dark"] .btn.ghost:hover{
+  background:#151b28;
+  border-color:#3a4257;
 }
 
 /* Danger */
@@ -159,6 +215,7 @@ main{
   background:var(--danger);
   border-color:var(--danger);
   color:#ffffff;
+  box-shadow:0 4px 10px rgba(177,14,30,.25);
 }
 
 /* Inputs */
@@ -169,13 +226,29 @@ main{
   border-radius:10px;
   padding:10px 12px;
 }
+html[data-theme="dark"] .input{
+  background:#11141b;
+}
 
-/* Flex */
+/* Flex helpers */
 .row{
   display:flex;
   gap:12px;
   flex-wrap:wrap;
   align-items:center;
+}
+
+pre{
+  background:#ffffff;
+  border:1px solid var(--line);
+  padding:12px;
+  border-radius:12px;
+  overflow:auto;
+  max-height:340px;
+  color:var(--ink);
+}
+html[data-theme="dark"] pre{
+  background:#05070a;
 }
 
 /* Touchpoint stacking */
@@ -192,23 +265,23 @@ main{
 #embedded{
   position:relative;
   z-index:10;
-  overflow:hidden;
-  padding:32px 28px !important;  /* NEW – Clean padding for embedded contextual help */
+  overflow:visible;           /* FIX: let iframe fully show */
+  padding:32px 28px;
 }
 
-/* Give space between heading/text and the actual embed */
+/* Extra spacing between text and embedded iframe */
 #embedded [id^="mindtouch-embed"]{
   display:block;
   margin-top:16px;
 }
 
-/* Optional: make the embedded iframe feel “native” */
+/* Make embedded iframe feel “framed” */
 #embedded iframe{
   border-radius:12px;
   border:1px solid var(--line);
 }
 
-/* SIP larger card and centered widget */
+/* SIP bigger card + centered widget */
 .search-card{
   padding:36px 28px;
 }
@@ -225,7 +298,7 @@ main{
   padding:10px 16px !important;
 }
 
-/* Ensure touchpoint UI floats above page chrome */
+/* Ensure touchpoint UI sits above page chrome */
 .mt-search-results,
 .mt-search,
 .mt-search-widget,
@@ -233,4 +306,9 @@ main{
 .mt-contextual-help-container,
 [class*="mt-ctx"]{
   z-index:9999 !important;
+}
+
+/* Footer tweak for dark mode if you keep inline styles */
+html[data-theme="dark"] footer{
+  background:#05070a;
 }
