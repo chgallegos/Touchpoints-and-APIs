@@ -9,7 +9,7 @@
   --line:#dde1e7;            /* borders/dividers */
   --accent:#009ae9;          /* NICE blue */
   --accent-dark:#0076ad;     /* hover state */
-  --danger:#b10e1e;          /* NICE error red */
+  --danger:#b10e1e;          /* error red (optional) */
   --shadow:0 10px 30px rgba(0,0,0,.06);
   --radius:16px;
 }
@@ -50,12 +50,10 @@ img{
   align-items:center;
 }
 
-.brand-logo{
-  width:28px;
+.brand-logo-img{
   height:28px;
-  border-radius:8px;
-  background:var(--accent);
-  box-shadow:0 0 0 2px rgba(0,0,0,.04);
+  width:auto;
+  display:block;
 }
 
 .brand-title{
@@ -131,7 +129,7 @@ main{
   border:1px solid transparent;
   cursor:pointer;
   text-decoration:none;
-  transition:.15s background,.15s border-color,.15s color,.15s transform, .15s box-shadow;
+  transition:.15s background,.15s border-color,.15s color,.15s transform,.15s box-shadow;
 }
 
 /* Primary (NICE blue) */
@@ -163,7 +161,7 @@ main{
   border-color:#c3cad8;
 }
 
-/* Danger (if you still want a red variant) */
+/* Danger (if needed) */
 .btn.danger{
   background:var(--danger);
   border-color:var(--danger);
@@ -203,11 +201,29 @@ pre{
   color:var(--ink);
 }
 
-/* Touchpoint stacking fixes (still needed) */
-.card{overflow:visible;}
-#search{position:relative;z-index:20;}
-#contextual{position:relative;z-index:15;}
-#embedded{position:relative;z-index:10;}
+/* Touchpoint stacking & overflow handling */
+.card{
+  overflow:hidden;       /* default: keep things tidy */
+}
+
+#search{
+  position:relative;
+  z-index:20;
+  overflow:visible;      /* allow SIP dropdown to extend */
+}
+
+#contextual{
+  position:relative;
+  z-index:15;
+  overflow:visible;      /* allow overlay to extend */
+}
+
+#embedded{
+  position:relative;
+  z-index:10;
+  overflow:hidden;       /* keep embedded article inside card */
+}
+
 .mt-search-results,
 .mt-search,
 .mt-search-widget,

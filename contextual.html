@@ -9,43 +9,50 @@
 <body>
   <header class="header">
     <div class="wrap">
-      <div class="brand"><div class="brand-logo"></div><div class="brand-title">Touchpoints & APIs — Demo</div></div>
+      <div class="brand">
+        <img src="assets/nice-logo.png" alt="NICE" class="brand-logo-img"/>
+        <div class="brand-title">Touchpoints & APIs — Demo</div>
+      </div>
       <nav class="nav" id="topnav">
         <a href="index.html">Home</a>
         <a href="embedded.html">Embedded Help</a>
         <a class="active" href="contextual.html">Contextual Help</a>
-        <a href="search.html">Search‑in‑Place</a>
-        <a href="signin.html">Sign‑In</a>
+        <a href="search.html">Search-in-Place</a>
+        <a href="signin.html">Sign-In</a>
       </nav>
     </div>
   </header>
 
-<main>
-  <section id="contextual" class="card">
-    <h1>Contextual Help</h1>
-    <p class="muted">
-      Click the button below to open the contextual help overlay.  
-      It will load your Expert homepage inside the panel.
-    </p>
+  <main>
+    <section id="contextual" class="card">
+      <h1>Contextual Help</h1>
+      <p class="muted">
+        Contextual Help opens an Expert article in an <strong>overlay panel</strong> when the user clicks a help link.
+        It’s perfect for “learn more” moments where you want to provide guidance without leaving the current screen.
+      </p>
 
-    <!-- Begin Contextual Help Touchpoint -->
-    <script async="async"
-      src="https://chris-gallegos-test.cxoneexpert.ai/@embed/a3c96a458d1d7d5afd4e00ae5c97be96a9bab430f8c18fe22c0f37c2525afeff.js">
-    </script>
+      <!-- Begin Contextual Help Touchpoint -->
+      <script async="async"
+        src="https://chris-gallegos-test.cxoneexpert.ai/@embed/a3c96a458d1d7d5afd4e00ae5c97be96a9bab430f8c18fe22c0f37c2525afeff.js">
+      </script>
 
-    <script type="mindtouch/embed"
-      id="mindtouch-embed-a3c96a458d1d7d5afd4e00ae5c97be96a9bab430f8c18fe22c0f37c2525afeff">
-    </script>
-    <!-- End Contextual Help Touchpoint -->
+      <script type="mindtouch/embed"
+        id="mindtouch-embed-a3c96a458d1d7d5afd4e00ae5c97be96a9bab430f8c18fe22c0f37c2525afeff">
+      </script>
+      <!-- End Contextual Help Touchpoint -->
 
-    <div class="row" style="margin-top:16px">
-      <a class="btn mt-contextual-help"
-        href="https://chris-gallegos-test.cxoneexpert.ai/">
-        Open Help Overlay
-      </a>
-    </div>
-  </section>
-</main>
+      <div class="row" style="margin-top:16px">
+        <a class="btn primary mt-contextual-help"
+          href="https://chris-gallegos-test.cxoneexpert.ai/">
+          Open Help Overlay
+        </a>
+      </div>
+
+      <p class="muted" style="margin-top:8px">
+        This button loads your Expert homepage in the overlay, but in a real deployment you’d point to a specific help article.
+      </p>
+    </section>
+  </main>
 
   <script>
     const path = location.pathname;
@@ -55,8 +62,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
