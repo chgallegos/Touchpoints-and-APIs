@@ -20,24 +20,52 @@
     </div>
   </header>
 
-  <main>
-    <section id="contextual" class="card">
-      <h1>Contextual Help</h1>
-      <p class="muted">Paste the <strong>Contextual Help</strong> Touchpoint <em>loader script</em> below.</p>
+<main>
+  <section id="contextual" class="card">
+    <h1>Contextual Help</h1>
+    <p class="muted">
+      This page demonstrates the <strong>Contextual Help</strong> Touchpoint.
+      Clicking the button below should open an inline overlay — not a new page.
+    </p>
 
       <!-- Begin Contextual Help test, Type = f1 -->
       <!-- Generated on [11/20/2025 21:09:39] by MindTouch -->
       <script async="async" src="https://chris-gallegos-test.cxoneexpert.ai/@embed/a3c96a458d1d7d5afd4e00ae5c97be96a9bab430f8c18fe22c0f37c2525afeff.js"></script>
       <script type="mindtouch/embed" id="mindtouch-embed-a3c96a458d1d7d5afd4e00ae5c97be96a9bab430f8c18fe22c0f37c2525afeff"></script>
       <!-- End Contextual Help test -->
+      <!-- Begin Contextual Help test, Type = f1 -->
+    <script async="async"
+      src="https://chris-gallegos-test.cxoneexpert.ai/@embed/a3c96a458d1d7d5afd4e00ae5c97be96a9bab430f8c18fe22c0f37c2525afeff.js">
+    </script>
 
-      <div class="row" style="margin-top:8px">
-        <a class="btn mt-contextual-help" href="https://chris-gallegos-test.cxoneexpert.ai/Wellness_Guides/Movement_And_Exercise/Foundations_of_Strength_Training/Core_Lifts" target="_blank" rel="noopener">Open Help Overlay</a>
-        <a class="btn ghost" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a>
-      </div>
-    </section>
-  </main>
+    <script type="mindtouch/embed"
+      id="mindtouch-embed-a3c96a458d1d7d5afd4e00ae5c97be96a9bab430f8c18fe22c0f37c2525afeff">
+    </script>
+    <!-- End Contextual Help test -->
 
+    <!-- =============================
+         TRIGGER BUTTON
+         IMPORTANT: Do NOT use target="_blank"
+         IMPORTANT: href MUST be a REAL Expert article
+    ============================== -->
+
+    <div class="row" style="margin-top:16px;">
+      <a class="btn mt-contextual-help"
+        href="https://chris-gallegos-test.cxoneexpert.ai/Help/Guides/Getting_Started">
+        Open Help Overlay
+      </a>
+      <a class="btn ghost" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+        Back to top
+      </a>
+    </div>
+
+    <p class="muted" style="margin-top:8px;">
+      If you click the button above and it opens a new page instead of the overlay,
+      check that the <strong>custom CSS selector</strong> in your Touchpoint settings is exactly:
+      <code>.mt-contextual-help</code>
+    </p>
+  </section>
+</main>
   <script>
     const path = location.pathname;
     document.querySelectorAll('#topnav a').forEach(a=>{
@@ -46,3 +74,8 @@
   </script>
 </body>
 </html>
+
+
+
+
+
