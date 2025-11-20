@@ -32,9 +32,9 @@
       <h1>Sign-In (Inline Widget)</h1>
 
       <p class="muted">
-        This version embeds the Expert sign-in widget <strong>directly into the page</strong>.
-        It’s ideal for portals or onboarding flows where you want authentication to feel
-        like part of your UI rather than a redirect.
+        This section embeds the Expert sign-in widget <strong>directly into the page</strong>.
+        It behaves like a mini login panel and is ideal for portals, dashboards, or
+        onboarding experiences where authentication should feel native to the interface.
       </p>
 
       <!-- Begin Sign-In Test, Type = login -->
@@ -57,7 +57,8 @@
       </div>
 
       <p class="muted" style="margin-top:8px">
-        If you're not signed in, the article will prompt for authentication. After signing in, reload this page.
+        If you're not signed in, the article will redirect to the login screen.
+        After signing in, reload this page to see how the inline widget behaves.
       </p>
     </section>
 
@@ -69,30 +70,29 @@
       <h1>Sign-In (Overlay Modal)</h1>
 
       <p class="muted">
-        This version uses <strong>Contextual Help</strong> to load the login page inside a floating overlay.
-        It behaves like a modal window and keeps the user on the same page — perfect for 
-        apps that want an immersive login experience.
+        This method uses <strong>Contextual Help</strong> to load the Expert sign-in page
+        inside a floating modal-style overlay. It lets users authenticate without leaving your page,
+        creating a seamless, application-like experience.
       </p>
 
-      <!-- Contextual Help loader script (same one used in contextual.html) -->
+      <!-- Contextual Help loader script -->
       <script async="async"
         src="https://chris-gallegos-test.cxoneexpert.ai/@embed/a3c96a458d1d7d5afd4e00ae5c97be96a9bab430f8c18fe22c0f37c2525afeff.js">
       </script>
+
       <script type="mindtouch/embed"
         id="mindtouch-embed-a3c96a458d1d7d5afd4e00ae5c97be96a9bab430f8c18fe22c0f37c2525afeff">
       </script>
 
-      <!-- Trigger: loads login in an overlay -->
       <div class="row" style="margin-top:16px;">
-        <a class="btn red mt-contextual-help"
+        <a class="btn primary mt-contextual-help"
           href="https://chris-gallegos-test.cxoneexpert.ai/Special:Userlogin">
           Open Login in Overlay
         </a>
       </div>
 
       <p class="muted" style="margin-top:8px">
-        This loads the Expert sign-in page in a pop-up style panel using the same 
-        mechanism as Contextual Help.
+        This opens the Expert login page inside a modal overlay powered by the Contextual Help Touchpoint.
       </p>
     </section>
 
