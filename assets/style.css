@@ -312,3 +312,12 @@ html[data-theme="dark"] pre{
 html[data-theme="dark"] footer{
   background:#05070a;
 }
+
+#embedded iframe {
+  display:block !important;
+  width:100% !important;
+  height:600px !important;
+  border:none !important;
+  border-radius:12px;
+  overflow:hidden;
+}
