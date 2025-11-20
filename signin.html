@@ -3,32 +3,57 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Sign‑In</title>
+  <title>Sign-In</title>
   <link rel="stylesheet" href="assets/style.css"/>
 </head>
 <body>
   <header class="header">
     <div class="wrap">
-      <div class="brand"><div class="brand-logo"></div><div class="brand-title">Touchpoints & APIs — Demo</div></div>
+      <div class="brand">
+        <div class="brand-logo"></div>
+        <div class="brand-title">Touchpoints & APIs — Demo</div>
+      </div>
       <nav class="nav" id="topnav">
         <a href="index.html">Home</a>
         <a href="embedded.html">Embedded Help</a>
         <a href="contextual.html">Contextual Help</a>
-        <a href="search.html">Search‑in‑Place</a>
-        <a class="active" href="signin.html">Sign‑In</a>
+        <a href="search.html">Search-in-Place</a>
+        <a class="active" href="signin.html">Sign-In</a>
       </nav>
     </div>
   </header>
 
   <main>
     <section id="signin" class="card">
-      <h1>Sign‑In</h1>
-      <p class="muted">Demo how users authenticate with Expert before viewing permissioned content.</p>
-      <div class="row">
-        <a class="btn red" href="https://chris-gallegos-test.cxoneexpert.ai/Special:Userlogin" target="_blank" rel="noopener">Sign in to Expert</a>
-        <a class="btn" href="https://chris-gallegos-test.cxoneexpert.ai/Wellness_Guides/Movement_And_Exercise/Foundations_of_Strength_Training/Core_Lifts" target="_blank" rel="noopener">Open a permissioned article</a>
+      <h1>Sign-In</h1>
+      <p class="muted">
+        This page demonstrates how Expert handles authentication and permissioned content.
+        The sign-in widget below comes from the <strong>Sign-In Touchpoint</strong>, and the button
+        lets you test access to a permission-restricted article.
+      </p>
+
+      <!-- Begin Sign-In Test, Type = login -->
+      <!-- Generated on [11/20/2025 21:47:58] by MindTouch -->
+      <script async="async"
+        src="https://chris-gallegos-test.cxoneexpert.ai/@embed/d9340f8891d79e9b4c10c0219897ecf064f6fbe0308dcd594c2d0d3b34158776.js">
+      </script>
+      <script type="mindtouch/embed"
+        id="mindtouch-embed-d9340f8891d79e9b4c10c0219897ecf064f6fbe0308dcd594c2d0d3b34158776">
+      </script>
+      <!-- End Sign-In Test -->
+
+      <div class="row" style="margin-top:16px">
+        <a class="btn"
+          href="https://chris-gallegos-test.cxoneexpert.ai/Wellness_Guides/Movement_And_Exercise/Foundations_of_Strength_Training/Core_Lifts"
+          target="_blank" rel="noopener">
+          Open a permissioned article
+        </a>
       </div>
-      <p class="muted" style="margin-top:8px">After login, the permissioned article loads if your role allows it.</p>
+
+      <p class="muted" style="margin-top:8px">
+        If you’re not signed in, opening the permissioned article will prompt you to authenticate.
+        After signing in, reload this page to see how the sign-in widget and article behavior change.
+      </p>
     </section>
   </main>
 
