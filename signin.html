@@ -24,12 +24,17 @@
   </header>
 
   <main>
+
+    <!-- ========================================================= -->
+    <!-- INLINE SIGN-IN WIDGET                                      -->
+    <!-- ========================================================= -->
     <section id="signin" class="card">
-      <h1>Sign-In</h1>
+      <h1>Sign-In (Inline Widget)</h1>
+
       <p class="muted">
-        This page demonstrates how Expert handles authentication and permissioned content.
-        The sign-in widget below comes from the <strong>Sign-In Touchpoint</strong>, and the button
-        lets you test access to a permission-restricted article.
+        This version embeds the Expert sign-in widget <strong>directly into the page</strong>.
+        It’s ideal for portals or onboarding flows where you want authentication to feel
+        like part of your UI rather than a redirect.
       </p>
 
       <!-- Begin Sign-In Test, Type = login -->
@@ -37,6 +42,7 @@
       <script async="async"
         src="https://chris-gallegos-test.cxoneexpert.ai/@embed/d9340f8891d79e9b4c10c0219897ecf064f6fbe0308dcd594c2d0d3b34158776.js">
       </script>
+
       <script type="mindtouch/embed"
         id="mindtouch-embed-d9340f8891d79e9b4c10c0219897ecf064f6fbe0308dcd594c2d0d3b34158776">
       </script>
@@ -46,21 +52,56 @@
         <a class="btn"
           href="https://chris-gallegos-test.cxoneexpert.ai/Wellness_Guides/Movement_And_Exercise/Foundations_of_Strength_Training/Core_Lifts"
           target="_blank" rel="noopener">
-          Open a permissioned article
+          Try opening a permissioned article
         </a>
       </div>
 
       <p class="muted" style="margin-top:8px">
-        If you’re not signed in, opening the permissioned article will prompt you to authenticate.
-        After signing in, reload this page to see how the sign-in widget and article behavior change.
+        If you're not signed in, the article will prompt for authentication. After signing in, reload this page.
       </p>
     </section>
+
+
+    <!-- ========================================================= -->
+    <!-- OVERLAY SIGN-IN (CONTEXTUAL HELP)                          -->
+    <!-- ========================================================= -->
+    <section id="signin-overlay" class="card">
+      <h1>Sign-In (Overlay Modal)</h1>
+
+      <p class="muted">
+        This version uses <strong>Contextual Help</strong> to load the login page inside a floating overlay.
+        It behaves like a modal window and keeps the user on the same page — perfect for 
+        apps that want an immersive login experience.
+      </p>
+
+      <!-- Contextual Help loader script (same one used in contextual.html) -->
+      <script async="async"
+        src="https://chris-gallegos-test.cxoneexpert.ai/@embed/a3c96a458d1d7d5afd4e00ae5c97be96a9bab430f8c18fe22c0f37c2525afeff.js">
+      </script>
+      <script type="mindtouch/embed"
+        id="mindtouch-embed-a3c96a458d1d7d5afd4e00ae5c97be96a9bab430f8c18fe22c0f37c2525afeff">
+      </script>
+
+      <!-- Trigger: loads login in an overlay -->
+      <div class="row" style="margin-top:16px;">
+        <a class="btn red mt-contextual-help"
+          href="https://chris-gallegos-test.cxoneexpert.ai/Special:Userlogin">
+          Open Login in Overlay
+        </a>
+      </div>
+
+      <p class="muted" style="margin-top:8px">
+        This loads the Expert sign-in page in a pop-up style panel using the same 
+        mechanism as Contextual Help.
+      </p>
+    </section>
+
   </main>
 
   <script>
     const path = location.pathname;
-    document.querySelectorAll('#topnav a').forEach(a=>{
-      if(path.endsWith(a.getAttribute('href'))) a.classList.add('active');
+    document.querySelectorAll('#topnav a').forEach(a => {
+      if (path.endsWith(a.getAttribute('href'))) a.classList.add('active');
     });
   </script>
 </body>
