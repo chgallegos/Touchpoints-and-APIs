@@ -9,7 +9,7 @@
   --line:#dde1e7;            /* borders/dividers */
   --accent:#009ae9;          /* NICE blue */
   --accent-dark:#0076ad;     /* hover state */
-  --danger:#b10e1e;          /* error red (optional) */
+  --danger:#b10e1e;          /* error red */
   --shadow:0 10px 30px rgba(0,0,0,.06);
   --radius:16px;
 }
@@ -107,6 +107,7 @@ main{
   border-radius:var(--radius);
   box-shadow:var(--shadow);
   padding:18px;
+  overflow:hidden;   /* default: keep content tidy */
 }
 
 .card h1,
@@ -161,7 +162,7 @@ main{
   border-color:#c3cad8;
 }
 
-/* Danger (if needed) */
+/* Danger */
 .btn.danger{
   background:var(--danger);
   border-color:var(--danger);
@@ -183,7 +184,7 @@ main{
   padding:10px 12px;
 }
 
-/* Layout helpers */
+/* Flex helpers */
 .row{
   display:flex;
   gap:12px;
@@ -201,29 +202,51 @@ pre{
   color:var(--ink);
 }
 
-/* Touchpoint stacking & overflow handling */
-.card{
-  overflow:hidden;       /* default: keep things tidy */
-}
+/* --------------------------------------------------------------
+   TOUCHPOINT-SPECIFIC BEHAVIOR
+-------------------------------------------------------------- */
 
+/* SEARCH-IN-PLACE FIX:
+   Extend a fake card behind SIP results so it looks contained */
 #search{
   position:relative;
   z-index:20;
-  overflow:visible;      /* allow SIP dropdown to extend */
+  overflow:visible;     /* allow SIP dropdown/results to extend */
+  background:transparent;
+  border:none;
+  box-shadow:none;
 }
 
+/* Extend the visual card */
+#search::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  bottom:-260px;        /* adjust if SIP results ever exceed card */
+  background:var(--surface);
+  border-radius:var(--radius);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+  z-index:-1;
+}
+
+/* CONTEXTUAL HELP */
 #contextual{
   position:relative;
   z-index:15;
-  overflow:visible;      /* allow overlay to extend */
+  overflow:visible;     /* allow overlay to escape */
 }
 
+/* EMBEDDED HELP (article stays inside card) */
 #embedded{
   position:relative;
   z-index:10;
-  overflow:hidden;       /* keep embedded article inside card */
+  overflow:hidden;
 }
 
+/* Touchpoint widgets always float above page chrome */
 .mt-search-results,
 .mt-search,
 .mt-search-widget,
