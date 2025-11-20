@@ -219,6 +219,24 @@ pre{
   overflow:hidden;   /* keep embedded article neatly inside */
 }
 
+/* SIP bigger card + centered widget */
+.search-card{
+  padding:36px 28px;
+}
+
+.sip-wrapper{
+  max-width:900px;
+  margin:0 auto;
+}
+
+/* Make the SIP input feel more “hero” */
+#search input,
+#search input[type="search"]{
+  height:52px !important;
+  font-size:17px !important;
+  padding:10px 16px !important;
+}
+
 /* Make sure widgets float above surrounding chrome */
 .mt-search-results,
 .mt-search,
