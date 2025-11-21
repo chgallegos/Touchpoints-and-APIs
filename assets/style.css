@@ -321,3 +321,13 @@ html[data-theme="dark"] footer{
   border-radius:12px;
   overflow:hidden;
 }
+
+/* CRM iframe styling */
+#crm iframe{
+  display:block;
+  width:100%;
+  min-height:600px;
+  border:none !important;
+  border-radius:12px;
+  background:var(--surface);
+}
