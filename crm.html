@@ -26,68 +26,45 @@
   </header>
 
   <main>
-    <!-- Explanation / Concept card -->
+    <!-- Explanation card -->
     <section class="card">
       <h1>CRM Case (Salesforce)</h1>
       <p class="muted">
-        This page demonstrates how a <strong>CRM integration</strong> can connect Expert-driven workflows
-        to Salesforce. In a production deployment, this pattern is typically used to:
+        This page demonstrates how a <strong>CRM Touchpoint</strong> can connect your Expert experience
+        directly to a record in Salesforce. In a production deployment, this pattern is typically used for:
       </p>
       <ul>
-        <li>Create or open a Salesforce Case directly from an Expert article or flow.</li>
-        <li>Let agents pivot from knowledge to CRM with a single click.</li>
-        <li>Keep customer context (Cases, Contacts, Accounts) in sync with the guidance they’re using.</li>
+        <li>Opening a Salesforce Case or Contact from an Expert article or workflow</li>
+        <li>Letting agents pivot between knowledge and CRM with a single click</li>
+        <li>Surfacing CRM context alongside in-product guidance</li>
       </ul>
       <p class="muted">
-        For this demo, we’re linking to a specific Case in a Salesforce sandbox. Because Salesforce Lightning
-        blocks most iframe embedding from external domains, we’re using a <strong>“handoff” pattern</strong>
-        instead of an embedded view.
+        Use the embedded view below to see how a specific Case appears inside this demo site. If your org’s
+        security settings block iframes, you can still open the Case in a new tab.
       </p>
-    </section>
-
-    <!-- “Card-style” Case summary + CTA -->
-    <section class="card">
-      <h2>Demo Case: Salesforce Lightning</h2>
-      <p class="muted" style="margin-bottom:12px;">
-        This represents the type of Case an agent might open after reviewing an Expert article
-        or running through an in-product troubleshooting flow.
-      </p>
-
-      <div style="border-radius:12px; border:1px solid var(--line); padding:14px 16px; margin-bottom:14px;">
-        <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:6px;">
-          <div>
-            <div style="font-size:14px; text-transform:uppercase; color:var(--muted); letter-spacing:.08em;">
-              Case
-            </div>
-            <div style="font-weight:600;">500ao00000XtKb1AAF</div>
-          </div>
-          <div style="text-align:right;">
-            <div style="font-size:14px; text-transform:uppercase; color:var(--muted); letter-spacing:.08em;">
-              Status
-            </div>
-            <div style="font-weight:600;">Demo / Sandbox</div>
-          </div>
-        </div>
-        <div style="margin-top:6px;">
-          <div style="font-size:14px; text-transform:uppercase; color:var(--muted); letter-spacing:.08em;">
-            Subject
-          </div>
-          <div style="font-weight:500;">Sample Support Case for Touchpoints &amp; APIs Demo</div>
-        </div>
-      </div>
-
-      <p class="muted" style="margin-bottom:14px;">
-        Click the button below to open this Case in Salesforce Lightning. In a real implementation, this
-        link could be generated dynamically based on the user, account, or workflow they followed in Expert.
-      </p>
-
-      <div class="row" style="margin-top:4px;">
+      <div class="row" style="margin-top:12px;">
         <a class="btn primary"
            href="https://flow-innovation-8971.lightning.force.com/lightning/r/Case/500ao00000XtKb1AAF/view"
            target="_blank" rel="noopener">
           Open Case in Salesforce
         </a>
       </div>
+    </section>
+
+    <!-- Embedded CRM iframe -->
+    <section id="crm" class="card">
+      <h2 style="margin-bottom:12px;">Embedded Salesforce View</h2>
+      <p class="muted" style="margin-bottom:12px;">
+        If allowed by your Salesforce org’s security settings, the Case will render directly in this iframe.
+        Otherwise, use the “Open Case in Salesforce” button above.
+      </p>
+
+      <iframe
+        src="https://flow-innovation-8971.lightning.force.com/lightning/r/Case/500ao00000XtKb1AAF/view"
+        title="Salesforce Case"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
     </section>
   </main>
 
